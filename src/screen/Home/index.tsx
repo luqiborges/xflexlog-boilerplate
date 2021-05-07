@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { Text, TouchableOpacity, SafeAreaView, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { setKey } from '~/store/modules/teste/slice';
 import { Container } from './styles';
+import MetricCard from '~/components/MetricCard';
 
 export default function Home() {
   const navigation = useNavigation();
@@ -14,14 +15,7 @@ export default function Home() {
     <Container>
       <SafeAreaView>
         <Text>HOME</Text>
-        <TouchableOpacity
-          style={{ flex: 1, maxWidth: 100, backgroundColor: 'red' }}
-          onPress={() => {
-            dispatch(setKey({ key: 'teste' }));
-          }}
-        >
-          <Text>BOTÃO</Text>
-        </TouchableOpacity>
+        <MetricCard value={200} cardWidth={300} cardHeight={160} />
         <Text>{key}</Text>
       </SafeAreaView>
     </Container>
