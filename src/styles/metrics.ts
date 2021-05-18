@@ -16,7 +16,7 @@ export default {
   baseIconsHigh: 36,
   fontNormal: 'Lato-Regular',
   fontBold: 'Lato-Bold',
-  fontBlack: 'Lato-Black',
+  fontBlack: 'Robot-Black',
   screenWidth: width < height ? width : height,
   screenHeight: width < height ? height : width,
 };

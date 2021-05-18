@@ -12,40 +12,6 @@ import { navigationRef } from '~/services/navigation';
 import { colors } from '~/styles';
 
 const App: React.FC = () => {
-  const customTextProps = useMemo(
-    () => ({
-      style: {
-        fontFamily: 'Roboto-Regular',
-        color: colors.black,
-      },
-    }),
-    [],
-  );
-
-  const customViewProps = useMemo(
-    () => ({
-      style: {
-        backgroundColor: colors.white,
-      },
-    }),
-    [],
-  );
-
-  const customScrollViewProps = useMemo(
-    () => ({
-      style: {
-        backgroundColor: colors.white,
-      },
-    }),
-    [],
-  );
-
-  useEffect(() => {
-    setCustomText(customTextProps);
-    setCustomView(customViewProps);
-    setCustomScrollView(customScrollViewProps);
-  }, [customTextProps]);
-
   // LogBox.ignoreAllLogs(true);
 
   return (

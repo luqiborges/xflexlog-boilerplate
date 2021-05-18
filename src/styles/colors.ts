@@ -13,9 +13,10 @@ export default {
   secondaryAlert: '#C4C4C4',
   tertiaryAlert: '#495057',
 
+  normal: '#567DF4',
   success: '#6CF456',
-  warning: '#DEFB2D',
-  danger: '#E2574C',
+  warning: '#FAFF0E',
+  danger: '#EA1414',
   info: '#00C6B3',
 
   black: '#000000',
