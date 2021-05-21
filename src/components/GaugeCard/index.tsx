@@ -3,6 +3,8 @@ import { ProgressCircle } from 'react-native-svg-charts';
 
 import { Container } from './styles';
 
+import ErrorCard from '~/components/ErrorCard';
+
 interface GaugeCardProps {
   current: number;
   min: number;
@@ -19,6 +21,7 @@ const GaugeCard: React.FC<GaugeCardProps> = ({
   cardHeight = 180,
 }) => {
   const [progress, setProgress] = useState(0);
+  const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
     let newProgress = Number(current / (max - min));
@@ -27,15 +30,19 @@ const GaugeCard: React.FC<GaugeCardProps> = ({
 
   return (
     <Container cardWidth={cardWidth} cardHeight={cardHeight}>
-      <ProgressCircle
-        style={{ height: cardHeight / 1.5, paddingTop: 0 }}
-        progress={progress}
-        backgroundColor={'#757575'}
-        progressColor={'#FFFFFF'}
-        strokeWidth={12}
-        startAngle={Math.PI}
-        endAngle={Math.PI * 3}
-      />
+      {isConnected ? (
+        <ProgressCircle
+          style={{ height: cardHeight / 1.5, paddingTop: 0 }}
+          progress={progress}
+          backgroundColor={'#757575'}
+          progressColor={'#FFFFFF'}
+          strokeWidth={12}
+          startAngle={Math.PI}
+          endAngle={Math.PI * 3}
+        />
+      ) : (
+        <ErrorCard name="wifi-off" text="Transmitter not found" />
+      )}
     </Container>
   );
 };
