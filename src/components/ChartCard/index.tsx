@@ -6,6 +6,7 @@ import Chart from '../Chart';
 // Styles
 import { Container, Content } from './styles';
 import { colors, metrics } from '~/styles';
+import ErrorCard from '../ErrorCard';
 
 const ChartCard: React.FC<{
   cardWidth?: number;
@@ -52,11 +53,17 @@ const ChartCard: React.FC<{
     }
   };
 
+  const [isConnected, setIsConnected] = useState(false);
+
   if (cardWidth > 0)
     return (
       <Container cardWidth={cardWidth} cardHeight={cardHeight}>
         <Content>
-          <Chart data={data} />
+          {isConnected ? (
+            <Chart data={data} />
+          ) : (
+            <ErrorCard name="wifi-off" text="Transmitter not found" />
+          )}
         </Content>
       </Container>
     );
