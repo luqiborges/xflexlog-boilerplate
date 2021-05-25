@@ -5,12 +5,6 @@ export const Container = styled.ScrollView`
   background-color: ${colors.white};
 `;
 
-export const Header = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  padding: ${metrics.basePadding}px;
-`;
-
 export const SelectedProjects = styled.Text`
   font-size: ${metrics.fontSizeMedium}px;
   color: ${colors.tertiaryText};
@@ -19,12 +13,14 @@ export const SelectedProjects = styled.Text`
 export const Title = styled.Text`
   font-size: ${metrics.fontSizeHigh}px;
   text-align: center;
+  padding-top: ${metrics.basePadding}px;
 `;
 
-export const SelectAll = styled.View`
+export const Header = styled.View`
   flex-direction: row;
-  justify-content: flex-end;
-  padding: ${metrics.basePadding}px ${metrics.basePadding}px 0 0;
+  justify-content: space-between;
+  padding: ${metrics.basePadding}px ${metrics.basePadding * 2}px 0
+    ${metrics.basePadding * 2}px;
 `;
 
 export const ProjectsView = styled.ScrollView`
@@ -46,6 +42,12 @@ export const ProjectText = styled.View`
 export const TextSelect = styled.Text`
   color: ${colors.secondary};
 `;
+
+export const ButtonView = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
+
 export const ProjectsTouchable = styled.TouchableOpacity<{
   index: number;
   lenght: number;
