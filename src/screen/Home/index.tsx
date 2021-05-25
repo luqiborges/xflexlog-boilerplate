@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 
 import KeyboardScrollBackground from '~/components/KeyboardScrollBackground';
-import ChartCard from '~/components/ChartCard';
-import ErrorCard from '~/components/ErrorCard';
-import GaugeCard from '~/components/GaugeCard';
+import ExportView from '~/components/ExportView';
 
 export default function Home() {
+  const projects = [
+    { name: 'Sensor Pairing 01', subtitle: '3 configurations found' },
+    { name: 'Sensor Pairing 02', subtitle: '1 configurations found' },
+    { name: 'Sensor Pairing 03', subtitle: '3 configurations found' },
+    { name: 'Sensor Pairing 04', subtitle: '4 configurations found' },
+    { name: 'Sensor Pairing 05', subtitle: '3 configurations found' },
+    { name: 'Sensor Pairing 06', subtitle: '2 configurations found' },
+  ];
+
   return (
     <KeyboardScrollBackground style={{ backgroundColor: '#1F242B', flex: 1 }}>
-      <GaugeCard current={70} min={0} max={100} />
-      <ChartCard value={20} />
-      <ErrorCard name="close-box-multiple-outline" text="PIN is not correct" />
+      <ExportView projects={projects} />
     </KeyboardScrollBackground>
   );
 }

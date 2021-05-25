@@ -3,10 +3,17 @@ import { colors, metrics } from '~/styles';
 
 interface IButtonStyled {
   width: number | string;
+  height: number | string;
+  borderRadius: number | undefined;
 }
 
 export const Container = styled.TouchableOpacity<IButtonStyled>`
-  height: 55px;
+  height: ${props =>
+    props.height
+      ? typeof props.height === 'string'
+        ? props.height
+        : `${props.height}px`
+      : '55px'};
   width: ${props =>
     props.width
       ? typeof props.width === 'string'
@@ -17,7 +24,10 @@ export const Container = styled.TouchableOpacity<IButtonStyled>`
   align-items: center;
   justify-content: center;
   padding: 0px 10px;
-  border-radius: ${metrics.baseRadiusLow}px;
+  border-radius: ${props =>
+    props.borderRadius
+      ? `${props.borderRadius}px`
+      : `${metrics.basePadding}px`};
 `;
 
 export const Text = styled.Text`
